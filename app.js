@@ -3,7 +3,6 @@ const path = require('path');
 // const {spawn} = require('child_process');
 // const { PythonShell } = require("python-shell");
 const http = require('http');
-dotenv.config();
 const app = express();
 const indexRouter = require('./routes')
 app.set('port', process.env.PORT || 8080);
