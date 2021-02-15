@@ -1,8 +1,4 @@
 const express = require('express');
-const path = require('path');
-// const {spawn} = require('child_process');
-// const { PythonShell } = require("python-shell");
-const http = require('http');
 const app = express();
 const indexRouter = require('./routes')
 app.set('port', process.env.PORT || 8080);
@@ -14,8 +10,6 @@ app.set('port', process.env.PORT || 8080);
 
 
 app.use('/',indexRouter)
-
-
 
 
 
