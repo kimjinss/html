@@ -15,6 +15,8 @@ const client = new Client({
 });
 
 
+
+
 client.connect(err => {
     if (err) {
         console.error('connection error', err.stack)
@@ -22,6 +24,8 @@ client.connect(err => {
         console.log('success!')
     }
 });
+
+
 
 
 
