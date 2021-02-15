@@ -28,8 +28,6 @@ client.connect(err => {
 
 
 
-
-
 router.get('/', function(req, res, next) {
     const query = new Query("SELECT * FROM category")
     client.query(query)
