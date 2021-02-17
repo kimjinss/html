@@ -15,38 +15,43 @@ const client = new Client({
 });
 
 
+client.connect();
 
-
-client.connect(err => {
-    if (err) {
-        console.error('connection error', err.stack)
-    } else {
-        console.log('success!')
-    }
+client.query('SELECT NOW()', (err, res) => {
+    console.log(err, res)
+    client.end()
 });
 
-
-
-
-router.get('/', function(req, res, next) {
-    const query = new Query("SELECT * FROM category")
-    client.query(query)
-
-    var rows = []; /** * row에서 데이터 가져오고 end에서 검색할 때 발생한 각종 정보, error는 오류 발생시 */
-
-    query.on("row",row=>{
-        rows.push(row);
-    });
-    query.on('end', () => {
-        console.log(rows);
-        console.log('query done')
-        res.send(rows);
-        res.status(200).end();
-    });
-    query.on('error', err => {
-        console.error(err.stack)
-    });
-});
+// client.connect(err => {
+//     if (err) {
+//         console.error('connection error', err.stack)
+//     } else {
+//         console.log('success!')
+//     }
+// });
+//
+//
+//
+//
+// router.get('/', function(req, res, next) {
+//     const query = new Query("SELECT * FROM category")
+//     client.query(query)
+//
+//     var rows = []; /** * row에서 데이터 가져오고 end에서 검색할 때 발생한 각종 정보, error는 오류 발생시 */
+//
+//     query.on("row",row=>{
+//         rows.push(row);
+//     });
+//     query.on('end', () => {
+//         console.log(rows);
+//         console.log('query done')
+//         res.send(rows);
+//         res.status(200).end();
+//     });
+//     query.on('error', err => {
+//         console.error(err.stack)
+//     });
+// });
 
 
 // rows() = () => client.query('select * from category')
