@@ -8,31 +8,31 @@ const Query = require('pg').Query
 
 const client = new Client({
     user: 'test1',
-    // host: '59.3.55.93',
+    host: '59.3.55.93',
     database: 'test1db',
     password: 'test1',
-    // port: '5432'
+    port: '5432',
 });
 
 
-client.connect();
-
-client.query('SELECT NOW()', (err, res) => {
-    console.log(err, res)
-    client.end()
-});
-
-// client.connect(err => {
-//     if (err) {
-//         console.error('connection error', err.stack)
-//     } else {
-//         console.log('success!')
-//     }
+// client.connect();
+//
+// client.query('SELECT NOW()', (err, res) => {
+//     console.log(err, res)
+//     client.end()
 // });
-//
-//
-//
-//
+
+client.connect(err => {
+    if (err) {
+        console.error('connection error', err.stack)
+    } else {
+        console.log('success!')
+    }
+});
+
+
+
+
 // router.get('/', function(req, res, next) {
 //     const query = new Query("SELECT * FROM category")
 //     client.query(query)
