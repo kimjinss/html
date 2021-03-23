@@ -20,12 +20,12 @@ let users = [
     }
   ]
   
-  app.get('/users', (req, res) => {
+  router.get('/users', (req, res) => {
      console.log('who get in here/users');
      res.json(users)
   });
   
-  app.post('/post', (req, res) => {
+  router.post('/post', (req, res) => {
      console.log('who get in here post /users');
      var inputData;
   
