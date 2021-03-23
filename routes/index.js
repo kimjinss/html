@@ -37,7 +37,7 @@ let users = [
        console.log("user_id : "+inputData.user_id + " , name : "+inputData.name);
      });
   
-     res.write("OK!");
+     res.write("bingbing");
      res.end();
   });
   
