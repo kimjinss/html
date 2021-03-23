@@ -37,25 +37,48 @@ client.connect(err => {
 
 
 
-router.get('/', function(req, res, next) {
-    const query = new Query("SELECT * FROM category")
-    client.query(query)
+// router.get('/', function(req, res, next) {
+//     const query = new Query("SELECT * FROM category")
+//     client.query(query)
 
-    var rows = []; /** * row에서 데이터 가져오고 end에서 검색할 때 발생한 각종 정보, error는 오류 발생시 */
+//     var rows = []; /** * row에서 데이터 가져오고 end에서 검색할 때 발생한 각종 정보, error는 오류 발생시 */
 
-    query.on("row",row=>{
-        rows.push(row);
+//     query.on("row",row=>{
+//         rows.push(row);
+//     });
+//     query.on('end', () => {
+//         console.log(rows);
+//         console.log('query done!')
+//         res.send(rows);
+//         res.status(200).end();
+//     });
+//     query.on('error', err => {
+//         console.error(err.stack)
+//     });
+// });
+
+
+
+
+
+
+
+router.post('/post', (req, res) => {
+    console.log('who get in here post /users');
+    var inputData;
+ 
+    req.on('data', (data) => {
+      inputData = JSON.parse(data);
     });
-    query.on('end', () => {
-        console.log(rows);
-        console.log('query done!')
-        res.send(rows);
-        res.status(200).end();
+ 
+    req.on('end', () => {
+      console.log("user_id : "+inputData.user_id + " , name : "+inputData.name);
     });
-    query.on('error', err => {
-        console.error(err.stack)
-    });
-});
+ 
+    res.write("OK!");
+    res.end();
+ });
+ 
 
 
 // rows() = () => client.query('select * from category')
