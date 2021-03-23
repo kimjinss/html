@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const indexRouter = require('./routes')
+const indexRouter = require('./routes/index')
+const dbRouter = require('./routes/dbroter')
 app.set('port', process.env.PORT || 8080);
 
 // app.get('/', (req, res) => {
@@ -10,6 +11,7 @@ app.set('port', process.env.PORT || 8080);
 
 
 app.use('/',indexRouter)
+app.use('/',dbRouter)
 
 
 
