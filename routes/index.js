@@ -48,7 +48,7 @@ router.get('/', function(req, res, next) {
     });
     query.on('end', () => {
         console.log(rows);
-        console.log('query done')
+        console.log('query done!')
         res.send(rows);
         res.status(200).end();
     });
@@ -59,7 +59,7 @@ router.get('/', function(req, res, next) {
 
 
 // rows() = () => client.query('select * from category')
-//
+
 // router.get('/api/v1/rows', async (req, res) => {
 //     try { const rowQuery = await rows();
 //     const resp = response.Builder.buildOkResponse({
